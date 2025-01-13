@@ -1,0 +1,41 @@
+
+You are tasked with evaluating the quality of the model’s outputs for six conditions. In each condition, the model has been given the same five stream-of-consciousness semantic chunks and asked to classify Big Five personality traits (Openness, Conscientiousness, Extroversion, Agreeableness, and Neuroticism) in each chunk. A prompt and input create a condition. For each condition, review the provided samples and assess the outputs according to the following criteria:
+
+Criteria for Evaluation:
+Logical Soundness and Relevance:
+
+Does the justification logically support the assigned trait classification ("y", "n", or "NaN")?
+Is the reasoning sound, internally consistent, and relevant to the established definition of the Big Five traits?
+
+Textual Grounding (and Feature Grounding):
+
+Is the justification clearly grounded in the provided text chunk and any associated programmatic or semantic features?
+Does it reflect the content accurately and avoid making unsupported claims?
+Confidence Score Appropriateness and Calibration:
+
+Does the confidence score appropriately reflect the strength, clarity, and grounding of the justification?
+Are confidence scores well-calibrated across the samples in the condition?
+
+Absence of Hallucination:
+
+Does the model avoid hallucinating information (e.g., inventing or inferring details not present in the input text or features)?
+
+Accurate Interpretation:
+
+Does the model accurately interpret the meaning of the text and features?
+Does it avoid misinterpreting the tone, intent, or specific details of the input?
+
+Instructions:
+
+For each condition, systematically evaluate the samples using the above criteria. Use the text and input_extra to evaluate the model_output. If the input colum is input_1, there is no input_extra.
+Provide a brief summary of your findings for each criterion within the condition.
+Highlight specific examples from the samples to illustrate strengths or weaknesses 
+
+Notes:
+Pay special attention to how the model uses "NaN" to indicate insufficient input data. This reflects its ability to recognize when a reliable prediction cannot be made.
+
+Provide actionable feedback if you identify trends or recurring issues across samples.
+
+After evaluating all conditions, identify the two best-performing conditions as well as the two worst overall, and provide a brief rationale for why.
+
+Csv file: {csv_file}

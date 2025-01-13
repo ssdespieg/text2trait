@@ -1,0 +1,238 @@
+o1_quality_assessment_mappedback
+
+Below is a structured evaluation of each Condition based on the six criteria provided. After reviewing the samples in each condition, you will also find a summary identifying the two best-performing conditions overall and the two worst-performing, with brief rationales.
+
+Evaluation Criteria (Recap)
+
+Logical Soundness and Relevance
+Does the justification logically support the assigned trait classification (“y,” “n,” or “NaN”)?
+Is the reasoning sound, internally consistent, and relevant to the Big Five traits?
+Textual Grounding (and Feature Grounding)
+Is the justification clearly grounded in the provided text chunk (and extra features, if any)?
+Does it reflect the content accurately and avoid unsupported claims?
+Confidence Score Appropriateness and Calibration
+Does the confidence score reflect the clarity/strength of the justification and textual grounding?
+Are confidence scores calibrated consistently (e.g., not all 0.9 without reason)?
+Absence of Hallucination
+Does the model avoid inventing or inferring details not present in the input text?
+Accurate Interpretation
+Does the model interpret tone and content correctly, aligning with definitions of each Big Five trait?
+Does it avoid misreading or over-interpreting the text?
+Use of “NaN”
+Does the model correctly use “NaN” when insufficient data is present?
+1. baseline - text_only
+
+Samples Reviewed
+
+baseline - text_only, baseline, text_only
+Chunk #9 (2002_854684.txt)
+Chunk #5 (2000_854482.txt)
+Chunk #10 (2003_425.txt)
+Chunk #18 (2002_675006.txt) — truncated output in the CSV
+Chunk #2 (1998_105169.txt)
+Because one of the outputs (for chunk #18) is truncated, it is unclear if the full justification is complete. This partial data slightly complicates the review.
+
+Strengths
+Logical Soundness:
+Generally, the justifications do a solid job of mapping the text to traits. For instance:
+Neuroticism is tied to words like “dread” or “stress,”
+Extroversion is tied to explicit mention of going out or seeking a social environment,
+“NaN” is correctly assigned when the text reveals no interpersonal clues (e.g., for Agreeableness).
+Textual Grounding:
+The model is reasonably faithful to the text, especially in discussing words like “dreading” (for Neuroticism) and “going out” (for Extroversion).
+Confidence Scores:
+The scores vary from 0.0 to ~0.9, suggesting some calibration. For example:
+A fairly strong 0.9 for Extroversion in a text that overtly references social desires.
+A 0.0 or “NaN” for traits with no evidence.
+Absence of Hallucination:
+Generally limited hallucinations—justifications stick to the text.
+Weaknesses
+Truncated Output (Chunk #18):
+The CSV snippet ends midway through the justification for Conscientiousness. This incomplete data makes the evaluation less conclusive.
+Consistency:
+Occasionally, the text mentions fleeting curiosity, but the model still confidently marks Openness as “y” or “n” without deep elaboration.
+Confidence Score Consistency:
+Some confidence scores (e.g., 0.8 vs. 0.85) appear just a few points apart but with no strong difference in the textual justification.
+Overall baseline - text_only Summary
+Most classifications are logically sound and appropriately tied to the text.
+Some calibrations of confidence could use more consistent explanations.
+The model correctly uses “NaN” for traits lacking textual evidence (especially for Agreeableness in certain chunks).
+2. cot - text_only
+
+Samples Reviewed
+
+cot - text_only, cot, text_only
+Chunk #18 (2002_675006.txt)
+Chunk #10 (2003_425.txt)
+Chunk #5 (2000_854482.txt)
+Chunk #9 (2002_854684.txt)
+Chunk #2 (1998_105169.txt)
+Strengths
+Logical Soundness & Relevance:
+The model consistently ties “dread” or “stress” to Neuroticism.
+Extroversion is assigned “y” specifically for statements about wanting to “go out,” which aligns well with the trait definition.
+Textual Grounding:
+“NaN” or “n” is assigned for Agreeableness when there is no evidence of social harmony or conflict.
+The justifications refer accurately to phrases in the text, such as “skip to tonight” or “go out.”
+Confidence Scores:
+The confidence rarely hits 1.0; it hovers in the 0.6–0.9 range, which is a decent spread.
+Some moderate scores (0.6–0.7) reflect partial or subtle evidence.
+Weaknesses
+Over-interpretation:
+In some texts, the model infers mild Neuroticism on minimal negativity. At times, it might be borderline or mere dissatisfaction rather than robust negative affect.
+The model occasionally uses “y” for traits like “Neuroticism” with moderate confidence (0.6) where the textual evidence is fairly subtle.
+Confidence Score Calibration:
+Sometimes “0.6” vs. “0.7” does not come with a strong distinction in the explanation.
+Overall cot - text_only Summary
+The justifications generally match the text well, with minimal hallucination.
+The “NaN” usage is good for traits not mentioned.
+Overall, the system is accurate in tying social cues to Extroversion and negative affect to Neuroticism.
+3. baseline - text_programmatic
+
+Samples Reviewed
+
+baseline - text_programmatic, baseline, text_programmatic
+Chunk #18 (2002_675006.txt)
+Chunk #10 (2003_425.txt)
+Chunk #5 (2000_854482.txt)
+Chunk #9 (2002_854684.txt)
+Chunk #2 (1998_105169.txt)
+
+Strengths
+Textual and Feature-Based Grounding:
+Each trait justification references both textual quotes and the “programmatic” features (e.g., lexical diversity, sentiment polarity). This is a strong demonstration of feature grounding.
+Confidence Score Explanation:
+The model often ties the numeric confidence to these features (e.g., “lexical diversity is moderately high, so 0.85 for Openness”).
+Absence of Hallucination:
+These outputs rarely invent details. They usually quote or paraphrase the text accurately.
+Weaknesses
+Overreliance on Single Metric:
+Sometimes the presence of a single metric—like “sentiment polarity” or “lexical diversity”—gets overemphasized to justify a trait. For instance, if the polarity is slightly negative, the model might be too confident about Neuroticism.
+Confidence Calibration:
+In some texts, the difference between 0.7 and 0.8 in confidence is not always clearly motivated.
+Overall baseline - text_programmatic Summary
+Generally good synergy between textual evidence and extra features.
+“NaN” usage is consistent for missing interpersonal evidence.
+Slight tendency to inflate or conflate single data points (like VADER score) with high confidence in trait classification.
+4. cot - text_programmatic
+
+Samples Reviewed
+
+cot - text_programmatic, cot, text_programmatic
+Chunk #2 (1998_105169.txt)
+Chunk #10 (2003_425.txt)
+Chunk #5 (2000_854482.txt)
+Chunk #9 (2002_854684.txt)
+Chunk #18 (2002_675006.txt)
+
+Strengths
+Logical Soundness:
+The model systematically correlates negative sentiment polarity with potential Neuroticism, or minimal social context with “n” for Extroversion/Agreeableness.
+Textual Grounding:
+Clear references to “stupid CD” or “dreading work” as part of the justifications for negativity or anxiety. The model seldom goes off-script.
+Feature Integration:
+The outputs often mention TTR (lexical diversity) or verb usage to support a trait classification, providing a rationale beyond just the text’s content.
+Weaknesses
+Confidence Score Extremes:
+Some samples give a 0.9 or 0.95 with limited textual data.
+E.g., concluding “n” for Extroversion at 0.95 might be too high if the text is simply lacking any social info.
+Occasional Overreach:
+If a chunk is mildly negative, the model may assign “y” for Neuroticism. Sometimes, the text is more neutral than anxious.
+Overall cot - text_programmatic Summary
+Solid use of programmatic features alongside text to justify trait assignments.
+A bit of potential overconfidence in some numeric scores.
+Otherwise consistent in using “n” or “NaN” where data is absent.
+5. baseline - text_semantic
+
+Samples Reviewed
+
+baseline - text_semantic, baseline, text_semantic
+Chunk #2 (1998_105169.txt)
+Chunk #18 (2002_675006.txt)
+Chunk #10 (2003_425.txt)
+Chunk #5 (2000_854482.txt)
+Chunk #9 (2002_854684.txt)
+
+Strengths
+Detailed Feature Reasoning:
+Each trait justification is layered with multiple “reasoning steps” referencing the text and the custom features (e.g., “Narrative and Discourse Coherence,” “Analytical Thinking,” etc.).
+Appropriate Use of “NaN” or “n”:
+Where the text fails to show evidence of a particular trait, the model often defaults to “n” or “NaN,” with a justification referencing the lack of relevant behavioral or emotional cues.
+Consistency:
+The model consistently references whether or not it sees conscientious behaviors or specific evidence of Openness.
+Weaknesses
+Lengthy Explanations:
+Occasionally, the trait justifications become repetitive or partially cut off. One or two chunk outputs appear slightly truncated or incomplete (similar to baseline - text_only), though not as severely.
+Confidence Score:
+In a few places, the model lumps several positive signals together, then gives a fairly moderate score (0.6–0.7). The calibration could be a bit more precise.
+Overall baseline - text_semantic Summary
+Well-grounded in textual and feature-based analysis.
+Explanations are typically thorough, though sometimes repetitive.
+No major hallucinations, with good recognition of “NaN” where data is absent.
+6. cot - text_semantic
+
+Samples Reviewed
+
+cot - text_semantic, cot, text_semantic
+Chunk #18 (2002_675006.txt)
+Chunk #9 (2002_854684.txt)
+Chunk #5 (2000_854482.txt)
+Chunk #10 (2003_425.txt)
+Chunk #2 (1998_105169.txt)
+
+Strengths
+Criteria Coverage:
+The model references a wide array of semantic features (Cognitive Flexibility, Self-Reflection Depth, etc.). Ties them back to Big Five justifications in a fairly consistent way.
+Logical Mapping:
+As with other conditions, negative or anxious language goes to Neuroticism, mention of going out or skipping to “fun times” can yield Extroversion, etc.
+Use of “n” or “NaN”:
+The model is fairly precise about concluding “n” for traits like Agreeableness or Extroversion when no evidence is found.
+Weaknesses
+Shallow vs. Strong Evidence:
+The outputs occasionally label “Openness to Experience” as “y” based on minimal curiosity or random side comments. The text might be more mundane than truly open-minded.
+Confidence Score Clarity:
+Some scores do not fully explain the jump from 0.3 to 0.6 or 0.7, especially for borderline traits like Openness.
+Overall cot - text_semantic Summary
+The justifications do tie in the custom semantic features.
+The textual references remain mostly accurate.
+The biggest critique is that “Openness” can be assigned on somewhat scant evidence.
+Overall Observations Across All Conditions
+
+Logical Soundness: Generally good across conditions; the system rarely contradicts itself and usually references actual text or features.
+Textual Grounding: Also strong. The model cites phrases or features (sentiment polarity, TTR) clearly.
+Confidence Scores: Scores mostly range from ~0.4 to ~0.9. Consistency could be tighter, but they are not random.
+Hallucination: Minimal. The model typically stays close to the text.
+Accurate Interpretation: Usually correct, though borderline negativity is sometimes turned into moderate or strong Neuroticism.
+Use of “NaN”: Generally correct whenever the text fails to address a trait (e.g., no mention of cooperation for Agreeableness).
+Two Best-Performing Conditions
+
+1. baseline - text_programmatic
+
+Reasoning: baseline - text_programmatic frequently integrates both textual quotes and programmatic features (VADER scores, lexical diversity) quite thoroughly. Confidence scores and trait assignments are fairly coherent, with minimal overreach.
+2. baseline - text_semantic
+
+Reasoning: baseline - text_semantic outputs tend to be thorough, referencing features like “Cognitive Flexibility,” “Analytical Thinking,” etc., then mapping them back to the Big Five. Despite some minor redundancy, the depth of explanation is strong, and use of “NaN” or “n” is consistent.
+These two conditions stand out for:
+
+Their consistent referencing of “features” and text.
+Logical step-by-step justifications that seldom over-interpret or hallucinate.
+Two Worst-Performing Conditions
+
+1. baseline - text_only
+
+Reasoning: One chunk is truncated (the Conscientiousness justification for chunk #18 ends abruptly). Incomplete data hinders clarity. Additionally, the confidence calibration sometimes felt inconsistent (e.g., immediate “0.9” for Extroversion on minimal mention of going out).
+2. cot - text_programmatic
+
+Reasoning: While cot - text_programmatic is generally decent, it occasionally exhibits very high confidence (0.95) for “n” or “y” in cases of brief text. Also, some trait assignments to Neuroticism or Openness are made with strong confidence even if textual evidence is rather minimal.
+These two conditions stand out for:
+
+Truncations or partial justifications in baseline - text_only.
+Overconfidence in cot - text_programmatic’s final numeric values, which sometimes outpace the textual evidence’s strength.
+Concluding Remarks
+
+Across all conditions, the model demonstrates a solid grasp of Big Five trait definitions and typically does well at referencing text features (negativity, talk of social activities, mention of stress, etc.) to justify the classification. The main critiques involve:
+
+Confidence score calibration: Some scores appear higher or lower without sufficiently distinct explanations.
+Occasional borderline trait assignments: Some single references to “stress” or “frustration” are taken as moderate/high confidence for Neuroticism, where a more conservative approach could be used.
+Truncations in a few outputs: This slightly reduces clarity in certain samples (notably baseline - text_only, chunk #18).
+Nonetheless, the model reliably uses “NaN” for insufficient evidence, avoids large-scale hallucination, and remains mostly consistent with the Big Five definitions.

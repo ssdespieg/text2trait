@@ -21,8 +21,9 @@ Contains the Jupyter notebooks used for data analysis, feature extraction, and p
   - `semantic_chunking.ipynb`: Implements the semantic chunking methodology.
 
 - **feature extraction/**: Notebooks used for extracting programmatic and LLM-based semantic features from the text data.
-  - `semfeat_extraction_cot.ipynb`: Focuses on extracting semantic features using Chain-of-Thought (CoT) prompting.
   - `chunks_eda_progfeat_extraction.ipynb`: Explores the semantic chunks dataset and conducts programmatic feature extraction.
+  - `semfeat_extraction_cot.ipynb`: Focuses on extracting semantic features using Chain-of-Thought (CoT) prompting.
+  - `semfeat_confidence_score_analysis.ipynb`: Analyzes confidence scores from the GPT-4o's semantic feature extraction results.
 
 ### 📂 `results/`
 Contains the output files from the feature extraction and classification experiments.
@@ -38,10 +39,16 @@ Contains the output files from the feature extraction and classification experim
   - `progfeat_extraction.json`: Results of the programmatic feature extraction.
   - `semfeat_extraction_cot.json`: Results of the LLM-based semantic feature extraction.
 
+- **o1 quality assessment/**:
+  - `o1_prompt.txt`: Contains the prompt and criteria used for GPT-o1 evaluation of GPT-4o outputs.
+  - `o1_sample_subset.csv`: A subset of semantic chunks with condition classification outputs used in the quality assessment.
+  - `o1_results_mappedback.txt`: GPT-o1 evaluation results with condition labels mapped back (from blind labels).
+
+
 ### 📂 `data/`
 Contains the dataset used for this study.
 
-- `essaytrain.csv`: The origianl dataset of stream-of-consciousness essays paired with Big Five personality labels (The Essays Dataset). 
+- `essaytrain.csv`: The original dataset of stream-of-consciousness essays paired with Big Five personality labels (The Essays Dataset). 
 
 ---
 
@@ -63,15 +70,15 @@ The project involves several key stages:
 
 2. **Feature Extraction**:
    - **Programmatic Features**: Linguistic features such as lexical diversity, sentiment, and part-of-speech distributions were extracted using traditional NLP tools.
-   - **LLM-Based Semantic Features**: Higher-level semantic features (e.g., Cognitive Flexibility, Emotional Tone) were extracted using the GPT-4o model and CoT prompting.
+   - **LLM-Based Semantic Features**: Higher-level semantic features (e.g., Cognitive Flexibility, Emotional Tone) were extracted using the GPT-4o model and CoT prompting. These features were further evaluated using confidence score analysis.
 
-3. **Personality Trait Classification**: The Big Five traits were classified using various input configurations and prompting techniques, including zero-shot baseline and CoT prompting.
+3. **Personality Trait Classification**: The Big Five traits were classified using various input configurations and prompting techniques, including zero-shot baseline and CoT prompting. The outputs were evaluated both quantitatively and qualitatively. 
 
 ---
 
 ## Research Context
 
-This work builds on existing literature in computational personality psychology, NLP, and prompt engineering. It aims to advance the use of LLMs for nuanced personality assessment and provides insights into the trade-offs between interpretability and accuracy when using LLMs as decision making agents.
+This work builds on existing literature in computational personality psychology, NLP, and prompt engineering. It aims to advance the use of LLMs for nuanced personality assessment and provides insights into the trade-offs between interpretability and accuracy when using LLMs as decision-making agents.
 
 For more details, please refer to the thesis document.
 
