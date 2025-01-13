@@ -1,6 +1,6 @@
-# MSc Thesis: Leveraging Large Language Model Capabilities for Big Five Personality Trait Classification
+#Leveraging Large Language Model Capabilities for Big Five Personality Trait Classification
 
-This repository contains the code, data, and results from my master's thesis titled **"Leveraging Large Language Model Capabilities for Big Five Personality Trait Classification"**. The project was conducted as part of the MSc IT & Cognition program at the University of Copenhagen.
+This repository contains the code, data, and results from my master's thesis titled **"Leveraging Large Language Model Capabilities for Big Five Personality Trait Classification"**. The project was conducted as part of the MSc IT & Cognition program (MSc Thesis) at the University of Copenhagen.
 
 The thesis explores the use of prompt engineering techniques with large language models (LLMs) to classify the Big Five personality traits from stream-of-consciousness essays (The Essays Dataset). The study includes semantic chunking, feature extraction, and various input configurations to assess the impact on classification performance.
 
