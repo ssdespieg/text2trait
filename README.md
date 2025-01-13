@@ -1,4 +1,4 @@
-#Leveraging Large Language Model Capabilities for Big Five Personality Trait Classification
+# Leveraging Large Language Model Capabilities for Big Five Personality Trait Classification
 
 This repository contains the code, data, and results from my master's thesis titled **"Leveraging Large Language Model Capabilities for Big Five Personality Trait Classification"**. The project was conducted as part of the MSc IT & Cognition program (MSc Thesis) at the University of Copenhagen.
 
