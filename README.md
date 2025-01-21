@@ -6,18 +6,14 @@ The thesis explores the use of prompt engineering techniques for large language 
 
 ---
 
-## 📑 Thesis Document
-
-The repository includes the final version of my thesis:
-
-- **`DeSpiegeleire_Thesis_0601.pdf`** – *Final version (January 6th, 2024)*  
-  This document contains the full thesis along with a **reading guide**, **appendices**, and **supplementary materials** to support the research findings.
-
----
-
 ## Repository Structure
 
 The repository is organized as follows:
+
+### 📘 Thesis Document
+
+- **`DeSpiegeleire_Thesis_0601.pdf`**: 
+  This document contains the full thesis along with a **reading guide**, **appendices**, and **supplementary materials** (January 6th, 2025).
 
 ### 📂 `notebooks/`
 Contains the Jupyter notebooks used for data analysis, feature extraction, and personality classification tasks.
