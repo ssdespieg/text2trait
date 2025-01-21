@@ -2,7 +2,16 @@
 
 This repository contains the code, data, and results from my master's thesis titled **"Leveraging Large Language Model Capabilities for Big Five Personality Trait Classification"**. The project was conducted as part of the MSc IT & Cognition program (MSc Thesis) at the University of Copenhagen.
 
-The thesis explores the use of prompt engineering techniques with large language models (LLMs) to classify the Big Five personality traits from stream-of-consciousness essays (The Essays Dataset). The study includes semantic chunking, feature extraction, and various input configurations to assess the impact on classification performance.
+The thesis explores the use of prompt engineering techniques for large language models (LLMs) to classify the Big Five personality traits from stream-of-consciousness essays (The Essays Dataset). The study includes semantic chunking, feature extraction, and various input-prompting configurations to assess the impact on classification performance.
+
+---
+
+## 📑 Thesis Document
+
+The repository includes the final version of my thesis:
+
+- **`DeSpiegeleire_Thesis_0601.pdf`** – *Final version (January 6th, 2024)*  
+  This document contains the full thesis along with a **reading guide**, **appendices**, and **supplementary materials** to support the research findings.
 
 ---
 
@@ -86,4 +95,4 @@ For more details, please refer to the thesis document.
 
 **Author**: Sophia De Spiegeleire  
 **Program**: MSc IT & Cognition, University of Copenhagen  
-**Submission Date**: January 2024
+**Submission Date**: December/January 2024
